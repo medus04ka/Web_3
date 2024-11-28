@@ -1,0 +1,167 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml"-->
+<!--      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"-->
+<!--      xmlns:h="http://xmlns.jcp.org/jsf/html"-->
+<!--      xmlns:f="http://xmlns.jcp.org/jsf/core">-->
+
+<!--<h:head>-->
+<!--    <title>ChZahaa</title>-->
+<!--&lt;!&ndash;    <h:outputStylesheet library="css" name="style.css" />&ndash;&gt;-->
+<!--    <link rel="stylesheet" href="../resources/css/style.css" />-->
+<!--</h:head>-->
+
+<!--<h:body>-->
+<!--    <h:form id="mainForm">-->
+<!--        <table id="main-grid">-->
+<!--            <tr>-->
+<!--                <td id="header-plate" colspan="2">-->
+<!--                    <a href="https://ooo.eeeee.ooo/"><span class="left-aligned">пиписи</span></a>-->
+<!--                    <span class="right-aligned">7979</span>-->
+<!--                </td>-->
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--                <td class="content-plate" id="graph-plate">-->
+<!--                    <div class="plate-top">-->
+<!--                        <h2 class="plate-top-title">ZZZ</h2>-->
+<!--                    </div>-->
+<!--                    <div class="container">-->
+<!--                        <div class="left-block" id="graph">-->
+<!--                            <section class="block plot-section">-->
+<!--                                <div class="graph">-->
+<!--                                    <svg id="graph" height="300" width="300" xmlns="http://www.w3.org/2000/svg">-->
+<!--                                        &lt;!&ndash; Оси со стрелками &ndash;&gt;-->
+<!--                                        <line stroke="gray" x1="0" x2="300" y1="150" y2="150"></line>-->
+<!--                                        <line stroke="gray" x1="150" x2="150" y1="0" y2="300"></line>-->
+<!--                                        <polygon fill="black" points="150,0 144,15 156,15" stroke="white"></polygon>-->
+<!--                                        <polygon fill="black" points="300,150 285,156 285,144" stroke="white"></polygon>-->
+
+<!--                                        &lt;!&ndash; Засечки &ndash;&gt;-->
+<!--                                        <line stroke="gray" x1="200" x2="200" y1="155" y2="145"></line>-->
+<!--                                        <line stroke="gray" x1="250" x2="250" y1="155" y2="145"></line>-->
+
+<!--                                        <line stroke="gray" x1="50" x2="50" y1="155" y2="145"></line>-->
+<!--                                        <line stroke="gray" x1="100" x2="100" y1="155" y2="145"></line>-->
+
+<!--                                        <line stroke="gray" x1="145" x2="155" y1="100" y2="100"></line>-->
+<!--                                        <line stroke="gray" x1="145" x2="155" y1="50" y2="50"></line>-->
+
+<!--                                        <line stroke="gray" x1="145" x2="155" y1="200" y2="200"></line>-->
+<!--                                        <line stroke="gray" x1="145" x2="155" y1="250" y2="250"></line>-->
+
+<!--                                        &lt;!&ndash; Подписи к засечкам &ndash;&gt;-->
+<!--                                        <text fill="black" x="195" y="140">R/2</text>-->
+<!--                                        <text fill="black" x="248" y="140">R</text>-->
+
+<!--                                        <text fill="black" x="40" y="140">-R</text>-->
+<!--                                        <text fill="black" x="90" y="140">-R/2</text>-->
+
+<!--                                        <text fill="black" x="160" y="105">R/2</text>-->
+<!--                                        <text fill="black" x="160" y="55">R</text>-->
+
+<!--                                        <text fill="black" x="160" y="205">-R/2</text>-->
+<!--                                        <text fill="black" x="160" y="255">-R</text>-->
+
+<!--                                        <text fill="black" x="160" y="10">Y</text>-->
+<!--                                        <text fill="black" x="290" y="140">X</text>-->
+
+<!--                                        &lt;!&ndash; Прямоугольники и полигоны &ndash;&gt;-->
+<!--                                        <rect x="90" y="50" width="120" height="25" fill="#0000FF" fill-opacity="0.5"-->
+<!--                                              stroke="#0000FF"></rect>-->
+<!--                                        <rect x="90" y="180" width="120" height="25" fill="#0000FF" fill-opacity="0.5"-->
+<!--                                              stroke="#0000FF"></rect>-->
+<!--                                        <rect x="90" y="115" width="120" height="25" fill="#0000FF" fill-opacity="0.5"-->
+<!--                                              stroke="#0000FF"></rect>-->
+
+<!--                                        <polygon fill="#0000FF" fill-opacity="1" points="185,75 90,180 115,180 210,75"-->
+<!--                                                 stroke="#0000FF"></polygon>-->
+<!--                                        <polygon fill="#0000FF" fill-opacity="0.5" points="90,115 115,115 155,75 130,75"-->
+<!--                                                 stroke="#0000FF"></polygon>-->
+<!--                                        <polygon fill="#0000FF" fill-opacity="0.5" points="210,140 185,140 150,180 175,180"-->
+<!--                                                 stroke="#0000FF"></polygon>-->
+
+<!--                                        <line stroke="white" stroke-width="3" stroke-opacity="0.7" x1="211" x2="116" y1="75"-->
+<!--                                              y2="180"></line>-->
+<!--                                        <circle cx="150" cy="150" id="target-dot" r="0" stroke="white" fill="white"></circle>-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                            </section>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </td>-->
+
+<!--                <td class="content-plate" id="table-plate" rowspan="2">-->
+<!--                    <div class="plate-top">-->
+<!--                        <h2 class="plate-top-title">Табло</h2>-->
+<!--                    </div>-->
+
+<!--                    <div class="scroll-container">-->
+<!--                        <table id="result-table">-->
+<!--                            <ui:repeat value="#{tableBean.points}" var="point">-->
+<!--                                <tr style="text-align: center">-->
+<!--                                    <td>#{point.x}</td>-->
+<!--                                    <td>#{point.y}</td>-->
+<!--                                    <td>#{point.r}</td>-->
+<!--                                    <td>#{point.isHit}</td>-->
+<!--                                </tr>-->
+<!--                            </ui:repeat>-->
+<!--                        </table>-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--                <td class="content-plate" id="values-plate">-->
+<!--                    <div class="plate-top">-->
+<!--                        <h2 class="plate-top-title">Параметрычи</h2>-->
+<!--                    </div>-->
+
+<!--                    <h:panelGrid id="input-grid" columns="2">-->
+<!--                        <h:outputLabel id="xText" for="xval" value="X:" />-->
+<!--                        <h:inputText id="xval" value="#{formBean.x}" maxlength="10" placeholder="Введите от -3 до 3" />-->
+
+<!--                        <h:outputLabel value="Y:" />-->
+<!--                        <h:selectOneRadio id="yval" value="#{formBean.y}">-->
+<!--                            <f:selectItem itemValue="-2" itemLabel="-2" />-->
+<!--                            <f:selectItem itemValue="-1.5" itemLabel="-1.5" />-->
+<!--                            <f:selectItem itemValue="-1" itemLabel="-1" />-->
+<!--                            <f:selectItem itemValue="-0.5" itemLabel="-0.5" />-->
+<!--                            <f:selectItem itemValue="0" itemLabel="0" />-->
+<!--                            <f:selectItem itemValue="0.5" itemLabel="0.5" />-->
+<!--                            <f:selectItem itemValue="1" itemLabel="1" />-->
+<!--                            <f:selectItem itemValue="1.5" itemLabel="1.5" />-->
+<!--                            <f:selectItem itemValue="2" itemLabel="2" />-->
+<!--                        </h:selectOneRadio>-->
+
+<!--                        <h:outputLabel value="R:" />-->
+<!--                        <h:selectOneRadio id="rval" value="#{formBean.r}">-->
+<!--                            <f:selectItem itemValue="1" itemLabel="1" />-->
+<!--                            <f:selectItem itemValue="1.5" itemLabel="1.5" />-->
+<!--                            <f:selectItem itemValue="2" itemLabel="2" />-->
+<!--                            <f:selectItem itemValue="2.5" itemLabel="2.5" />-->
+<!--                            <f:selectItem itemValue="3" itemLabel="3" />-->
+<!--                        </h:selectOneRadio>-->
+
+<!--                        <h:commandButton value="Тык" onclick="return checkData()" styleClass="button" style="text-align: center">-->
+<!--                            <f:ajax render="@form, :form:table" execute="@form" listener="#{formBean.check()}" onevent="processPoints"/>-->
+<!--                        </h:commandButton>-->
+<!--                    </h:panelGrid>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--        </table>-->
+<!--    </h:form>-->
+
+<!--    <h:form id="checkForm">-->
+<!--        <h:inputHidden id="hiddenX" value="#{formBean.x}" />-->
+<!--        <h:inputHidden id="hiddenY" value="#{formBean.y}" />-->
+<!--        <h:inputHidden id="hiddenR" value="#{formBean.r}" />-->
+
+<!--        <h:commandButton id="checkButton" action="#{formBean.check()}" style="display:none; text-align: center" >-->
+<!--            <f:ajax render=":result-table" execute="@form" onevent="processPoints" />-->
+<!--        </h:commandButton>-->
+<!--    </h:form>-->
+
+<!--    <script src="../resources/js/script.js" />-->
+<!--&lt;!&ndash;    <h:outputScript library="js" name="script.js" />&ndash;&gt;-->
+<!--</h:body>-->
+<!--</html>-->

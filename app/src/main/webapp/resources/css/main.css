@@ -1,0 +1,166 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('../../ru-ru.ttf'), url("../../en-us.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: "MyCustomFont", sans-serif;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    background-image: url("../../wallhaven-1po9vv.jpg");
+    background-size: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    font-size: 16px;
+    text-align: center;
+    font-family: "MyCustomFont", sans-serif;
+    color: rgb(151, 161, 213);
+    background-color: black;
+}
+
+.transparent-table {
+    background-color: rgba(255, 255, 255, 0.2) !important; /* Прозрачный фон */
+    border-collapse: collapse !important;
+}
+
+.transparent-table .ui-datatable-header {
+    background-color: rgba(255, 255, 255, 0.5) !important; /* Прозрачный фон заголовков */
+}
+
+.transparent-table td,
+.transparent-table th {
+    background-color: rgba(255, 255, 255, 0.2) !important; /* Прозрачный фон ячеек */
+    color: black !important; /* Непрозрачный текст */
+}
+
+
+.header-container {
+    display: grid;
+    grid-template-columns: minmax(max-content, 2fr) 5fr minmax(max-content, 1fr) minmax(max-content, 1fr);
+    line-height: 55px;
+    height: 55px;
+    width: calc(100% - 40px);
+    margin: auto;
+}
+
+input[type="radio"] {
+    cursor: pointer;
+}
+
+input[type="text"]:focus {
+    outline: none
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    height: calc(100vh - 55px);
+    width: 100vw;
+}
+
+.main > div {
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.main__left-column {
+    display: grid;
+    grid-template-rows: max-content max-content auto;
+}
+
+.main__block {
+    font-family: "MyCustomFont", sans-serif;
+    margin: 15px 15px 0 15px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.main__block .row {
+    margin: 13px auto;
+    width: fit-content;
+}
+
+.main__block .row > * {
+    display: inline-block;
+}
+
+.graph {
+    display: block;
+    height: 300px;
+    width: 300px;
+    border: 1px solid black;
+    margin: 20px auto;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(136, 75, 255, 0.66);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.input {
+    background-color: rgba(114, 99, 140, 0.15);
+    height: 23px;
+    margin-left: 5px;
+}
+
+.spinner {
+    background-color: rgba(114, 99, 140, 0.15);
+    margin-left: 5px;
+}
+
+.submit_button {
+    background-color: rgba(114, 99, 140, 0.15);
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.submit_button:hover {
+    background-color: rgba(114, 99, 140, 0.15);
+}
+
+.submit_button:active {
+    background-color: rgba(114, 99, 140, 0.15);
+}
+
+.result-title {
+
+    margin: 10px auto;
+    text-align: center;
+}
+
+.result-container {
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#result {
+    padding-bottom: 1px;
+    overflow-y: scroll;
+    max-height: calc(100vh - 130px);
+}
+
+.result-container > div {
+    padding: 5px;
+    box-shadow: 1px 1px #000000;
+}
+
+.ui-datatable .ui-datatable-data>tr {
+    background: #ffffff11 ;
+    color: #495057 ;
+    transition: background-color .2s, color .2s, border-color .2s, box-shadow .2s, opacity .2s ;
+}

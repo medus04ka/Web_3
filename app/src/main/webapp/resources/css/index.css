@@ -1,0 +1,107 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url("../../ru-ru.ttf") format('truetype'),
+    url("../../en-us.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lipstick';
+    src: url("../../Red Lipstick - Personal Use.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100vh;
+    font-size: 16px;
+    background-image: url("wallhaven-6drel7.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+}
+
+.centered-content {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(112, 126, 133, 0.6);
+    border-radius: 10px;
+    max-width: 80%;
+    font-size: 1.2rem;
+}
+
+.main-link {
+    position: absolute;
+    left: 30px;
+    top: 45%;
+    transform: translateY(-60%);
+    font-size: 8rem;
+    font-family: 'Lipstick', sans-serif;
+    color: #b23636;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.0);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.main-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    filter: blur(1px);
+    /*transform: translateY(-60%) translateX(5px); */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.dino-link {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 2rem;
+    color: #b23636;
+    text-decoration: none;
+    background-color: rgba(175, 75, 75, 0.0);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s;
+    font-family: 'Lipstick', sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.0);
+}
+
+.dino-link:hover {
+    transform: scale(1.1);
+    filter: blur(1px);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+
+.canvas {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#clock {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+   <meta charset="UTF-8"/>
+   <title>Help ME Pls</title>
+   <script defer="defer" src="#{resource['js/main.js']}"></script>
+   <link rel="stylesheet" href="#{resource['css/main.css']}"/>
+   <link rel="icon" type="image/jpg" href="#{resource['media/favicon.ico']}"/>
+</h:head>
+
+<body>
+<div class="content-container">
+   <header class="header">
+      <div class="header-container">
+         <div><a href="https://ooo.eeeee.ooo/"><span>Ми(к)ху</span></a></div>
+         <div></div>
+         <div>Вариант 228797</div>
+         <h:link value="Вернуться" outcome="index" />
+      </div>
+   </header>
+   <h:form method="get" id="form">
+      <main class="main">
+         <div class="main__left-column">
+            <div class="main__block" id="graph-container" >
+               <ui:include src="../resources/media/graph.svg" />
+            </div>
+            <div class="main__block">
+               <div class="row">Параметры</div>
+               <div class="row">
+                  <div>Выберете X:</div>
+                  <p:inputText id="x" value="#{formBean.x}" required="true" styleClass="input" maxlength="5" placeholder="от -3 до 3"/>
+                  <p:message for="x" />
+               </div>
+               <div id="notification" class="notification" style="display: none;"/>
+               <div class="row">
+                  <div style="top: -14px">Выберете Y:</div>
+                  <h:selectOneRadio id="y" value="#{formBean.y}">
+                     <f:selectItem itemValue="-2" itemLabel="-2" />
+                     <f:selectItem itemValue="-1.5" itemLabel="-1.5" />
+                     <f:selectItem itemValue="-1" itemLabel="-1" />
+                     <f:selectItem itemValue="-0.5" itemLabel="-0.5" />
+                     <f:selectItem itemValue="0" itemLabel="0" />
+                     <f:selectItem itemValue="0.5" itemLabel="0.5" />
+                     <f:selectItem itemValue="1" itemLabel="1" />
+                     <f:selectItem itemValue="1.5" itemLabel="1.5" />
+                     <f:selectItem itemValue="2" itemLabel="2" />
+                  </h:selectOneRadio>
+               </div>
+               <div class="row" style="display:flex">
+                  <div style="padding-top:3px">Выберете R:</div>
+                  <h:selectOneRadio id="r" value="#{formBean.r}">
+                     <f:selectItem itemValue="1" itemLabel="1" />
+                     <f:selectItem itemValue="1.5" itemLabel="1.5" />
+                     <f:selectItem itemValue="2" itemLabel="2" />
+                     <f:selectItem itemValue="2.5" itemLabel="2.5" />
+                     <f:selectItem itemValue="3" itemLabel="3" />
+                  </h:selectOneRadio>
+               </div>
+            </div>
+            <h:commandButton value="Илюшка" onclick="return validateForm()" styleClass="main__block submit_button">
+               <f:ajax render="@form, :form:table" execute="@form" listener="#{formBean.check()}" onevent="processPoints"/>
+            </h:commandButton>
+         </div>
+         <div>
+            <div class="result-title">Результат</div>
+            <p:dataTable value="#{tableBean.points}" var="point" rendered="#{not empty tableBean.points}"
+                         id="table" styleClass="transparent-table">
+               <p:column headerText="X" style="text-align: center;">
+                  <h:outputText value="#{point.x}" />
+               </p:column>
+               <p:column headerText="Y" style="text-align: center;">
+                  <h:outputText value="#{point.y}" />
+               </p:column>
+               <p:column headerText="R" style="text-align: center;">
+                  <h:outputText value="#{point.r}" />
+               </p:column>
+               <p:column headerText="Cоcал?" style="text-align: center;">
+                  <h:outputText value="#{point.isHit ? 'Да' : 'Нет'}" style="color: #{point.isHit ? 'green' : 'red'};" />
+               </p:column>
+            </p:dataTable>
+         </div>
+      </main>
+   </h:form>
+   <h:form id="checkForm">
+      <h:inputHidden id="hiddenX" value="#{formBean.x}" />
+      <h:inputHidden id="hiddenY" value="#{formBean.y}" />
+      <h:inputHidden id="hiddenR" value="#{formBean.r}" />
+
+      <h:commandButton id="checkButton" action="#{formBean.check()}" style="display:none">
+         <f:ajax render="@form, :form:table" execute="@form" onevent="processPoints" />
+      </h:commandButton>
+   </h:form>
+</div>
+</body>
+
+</html>
